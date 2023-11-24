@@ -1,0 +1,17 @@
+class BaseFilter:
+    def __init__(self, *args, **kwargs):
+        self.name = ""
+        self.description = ""
+
+    def apply(self, image):
+        print("Вы не можете применять базовый фильтр")
+
+
+class RotateFilter(BaseFilter):
+    def __init__(self):
+        super().__init__()
+        self.name = "Переворачиватель"
+        self.description = "Переворачивает изображение на 90 градусов"
+
+    def apply(self, image: Image):
+        return image.rotate(90)
